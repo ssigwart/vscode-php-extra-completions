@@ -17,7 +17,6 @@
 	"keywords": [
 		"php",
 		"intellisense",
-		"$_SERVER",
 		"PHPDoc"
 	],
 	"activationEvents": [
