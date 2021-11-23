@@ -1,3 +1,5 @@
 ## 1.0.0
+- Initial release.
 
-- Initial release
+## 1.0.1
+- Fixed extension name.

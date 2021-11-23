@@ -1,8 +1,8 @@
 {
   "name": "php-extra-completions",
-	"displayName": "php-extra-completions",
+	"displayName": "PHP Extra Completions",
 	"description": "This package adds additional completions to the PHP Intelephense extension. It is not created by the same author as PHP Intelephense.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"publisher": "ssigwart",
 	"repository": {
 		"type": "git",
