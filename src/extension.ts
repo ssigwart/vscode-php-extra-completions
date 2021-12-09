@@ -133,13 +133,13 @@ export function activate(context: vscode.ExtensionContext) {
 
 			// Check for $_SERVER
 			const line = position.line;
-			const startChar = position.character - 10;
+			const startChar = Math.max(0, position.character - 10);
 			let text = document.getText(new vscode.Range(line, startChar, line, position.character - 1));
 			if (text === '$_SERVER[')
 			{
 				for (const [key, docs] of Object.entries(phpServerKeys))
 				{
-					let item = new vscode.CompletionItem(key, vscode.CompletionItemKind.Field)
+					let item = new vscode.CompletionItem(key, vscode.CompletionItemKind.Field);
 					item.documentation = docs;
 					rtn.push(item);
 				}
