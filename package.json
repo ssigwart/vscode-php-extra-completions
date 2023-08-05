@@ -2,7 +2,7 @@
   "name": "php-extra-completions",
 	"displayName": "PHP Extra Completions",
 	"description": "This package adds additional completions to the PHP Intelephense extension. It is not created by the same author as PHP Intelephense.",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"publisher": "ssigwart",
 	"repository": {
 		"type": "git",
@@ -22,7 +22,7 @@
 	"activationEvents": [
 		"onLanguage:php"
 	],
-	"main": "./dist/extension.js",
+	"browser": "./dist/extension.js",
 	"scripts": {
 		"vscode:prepublish": "yarn run package",
 		"compile": "webpack",

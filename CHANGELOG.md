@@ -8,4 +8,7 @@
 - Fixed error when a quote is seen in the first 10 characters of a file.
 
 ## 1.0.3
-- Update language configuration until https://github.com/bmewburn/vscode-intelephense/pull/2653/files is merged
+- Update language configuration until https://github.com/bmewburn/vscode-intelephense/pull/2653/files is merged.
+
+## 1.0.4
+- Enable as web extension.
