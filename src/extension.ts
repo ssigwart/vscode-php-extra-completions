@@ -1,65 +1,6 @@
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-	// Set language configuration, but use timeout so that hopefully if comes after PHP Intelephense
-	setTimeout(function() {
-		vscode.languages.setLanguageConfiguration('php', {
-			wordPattern: /(-?\d*\.\d\w*)|([^\-\`\~\!\@\#\%\^\&\*\(\)\=\+\[\{\]\}\\\|\;\:\'\"\,\.\<\>\/\?\s]+)/g,
-			onEnterRules: [
-				{
-					// e.g. /** | */
-					beforeText: /^\s*\/\*\*(?!\/)([^\*]|\*(?!\/))*$/,
-					afterText: /^\s*\*\/$/,
-					action: {
-						indentAction: vscode.IndentAction.IndentOutdent,
-						appendText: ' * '
-					}
-				},
-				{
-					// e.g. /** ...|
-					beforeText: /^\s*\/\*\*(?!\/)([^\*]|\*(?!\/))*$/,
-					action: {
-						indentAction: vscode.IndentAction.None,
-						appendText: ' * '
-					}
-				},
-				{
-					// e.g. * ...|
-					beforeText: /^(\t|(\ \ ))*\ \*(\ ([^\*]|\*(?!\/))*)?$/,
-					action: {
-						indentAction: vscode.IndentAction.None,
-						appendText: '* '
-					}
-				},
-				{
-					// e.g. */|
-					beforeText: /^(\t|(\ \ ))*\ \*\/\s*$/,
-					action: {
-						indentAction: vscode.IndentAction.None,
-						removeText: 1
-					}
-				},
-				{
-					// e.g. *-----*/|
-					beforeText: /^(\t|(\ \ ))*\ \*[^/]*\*\/\s*$/,
-					action: {
-						indentAction: vscode.IndentAction.None,
-						removeText: 1
-					}
-				},
-				{
-					// Decrease indentation after single line if/else if/else, for, foreach, or while
-					previousLineText: /^\s*(((else ?)?if|for(each)?|while)\s*\(.*\)\s*|else\s*)$/,
-					// But make sure line doesn't have braces or is not another if statement
-					beforeText: /^\s+([^{i\s]|i(?!f\b))/,
-					action: {
-						indentAction: vscode.IndentAction.Outdent
-					}
-				}
-			]
-		});
-	}, 100);
-
 	// Add PHP completions for @params
 	context.subscriptions.push(vscode.languages.registerCompletionItemProvider('php', {
 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.CompletionItem[] {

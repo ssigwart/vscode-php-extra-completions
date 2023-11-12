@@ -12,3 +12,6 @@
 
 ## 1.0.4
 - Enable as web extension.
+
+## 1.0.5
+- Reverted language configuration now that https://github.com/bmewburn/vscode-intelephense/pull/2653/files is merged.
